@@ -1,7 +1,52 @@
-﻿using Newtonsoft.Json.Linq;
-
-namespace WW.API.src
+﻿namespace WW.API
 {
+    public class dSv_info_c
+    {
+        [System.Text.Json.Serialization.JsonIgnore()]
+        public u32 pointer;
+
+        public dSv_info_c(u32 pointer)
+        {
+            this.pointer = pointer;
+        }
+
+        /* 0x0000 */
+        public dSv_save_c mSavedata { get => _mSavedata(); set => _mSavedata(value); }
+
+        private dSv_save_c _mSavedata()
+        {
+            return new dSv_save_c(pointer);
+        }
+
+        private void _mSavedata(dSv_save_c value)
+        {
+
+        }
+    }
+
+    public class dSv_save_c
+    {
+        public u32 pointer;
+
+        public dSv_save_c(u32 pointer)
+        {
+            this.pointer = pointer;
+        }
+
+        /* 0x0000 */
+        public dSv_player_c mPlayer { get => _mPlayer(); set => _mPlayer(value); }
+
+        private dSv_player_c _mPlayer()
+        {
+            return new dSv_player_c(pointer);
+        }
+
+        private void _mPlayer(dSv_player_c value)
+        {
+
+        }
+
+    }
 
     public class dSv_player_c
     {
@@ -651,7 +696,7 @@ namespace WW.API.src
         public dSv_player_item_max2_c mItemMax2 { get => _mItemMax2(); set => _mItemMax2(value); }
         public u8[] field_0x3 { get => _field_0x3(); set => _field_0x3(value); }
 
-        private dSv_player_item_max2_c _mItemMax2() 
+        private dSv_player_item_max2_c _mItemMax2()
         {
             return new dSv_player_item_max2_c(pointer + 0x0);
         }
@@ -843,12 +888,12 @@ namespace WW.API.src
         {
             return 0xD;
         }
-        
+
         public u8[] mCollect { get => _mCollect(); set => _mCollect(value); }
         public u8 field_0x8 { get => _field_0x8(); set => _field_0x8(value); }
         public u8 mTact { get => _mTact(); set => _mTact(value); }
         public u8 mTriforce { get => _mTriforce(); set => _mTriforce(value); }
-        public u8 mSymbol { get => _mSymbol(); set => _mSymbol(value);  }
+        public u8 mSymbol { get => _mSymbol(); set => _mSymbol(value); }
         public u8 field_0xc { get => _field_0xc(); set => _field_0xc(value); }
 
         // #ARRCOUNT 8
@@ -1123,46 +1168,6 @@ namespace WW.API.src
 
     }
 
-    public class cXyz
-    {
-        public u32 pointer;
-        public cXyz(u32 pointer)
-        {
-            this.pointer = pointer;
-        }
-
-        public f32 x { get => _x(); set => _x(value); }
-        public f32 y { get => _y(); set => _y(value); }
-        public f32 z { get => _z(); set => _z(value); }
-
-        private f32 _x()
-        {
-            return Memory.RAM.ReadF32(pointer + 0x0);
-        }
-        private void _x(f32 value)
-        {
-            Memory.RAM.WriteF32(pointer + 0x0, value);
-        }
-
-        private f32 _y()
-        {
-            return Memory.RAM.ReadF32(pointer + 0x4);
-        }
-        private void _y(f32 value)
-        {
-            Memory.RAM.WriteF32(pointer + 0x4, value);
-        }
-
-        private f32 _z()
-        {
-            return Memory.RAM.ReadF32(pointer + 0x8);
-        }
-        private void _z(f32 value)
-        {
-            Memory.RAM.WriteF32(pointer + 0x8, value);
-        }
-    }
-
     public class dSv_player_config_c
     {
         public u32 pointer;
@@ -1400,7 +1405,7 @@ namespace WW.API.src
             return 0x70;
         }
 
-        private dSv_player_status_a_c _mRecollectStatusA() 
+        private dSv_player_status_a_c _mRecollectStatusA()
         {
             return new dSv_player_status_a_c(pointer + 0x0);
         }
@@ -1457,77 +1462,5 @@ namespace WW.API.src
         }
 
     }
-    /*
-        public class dSv_player_status_a_c
-        {
-            public u32 pointer;
-            public dSv_player_status_a_c(u32 pointer)
-            {
-                this.pointer = pointer;
-            }
-        }
-
-        public class dSv_player_status_a_c
-        {
-            public u32 pointer;
-            public dSv_player_status_a_c(u32 pointer)
-            {
-                this.pointer = pointer;
-            }
-        }
-
-        public class dSv_player_status_a_c
-        {
-            public u32 pointer;
-            public dSv_player_status_a_c(u32 pointer)
-            {
-                this.pointer = pointer;
-            }
-        }
-
-        public class dSv_player_status_a_c
-        {
-            public u32 pointer;
-            public dSv_player_status_a_c(u32 pointer)
-            {
-                this.pointer = pointer;
-            }
-        }
-
-        public class dSv_player_status_a_c
-        {
-            public u32 pointer;
-            public dSv_player_status_a_c(u32 pointer)
-            {
-                this.pointer = pointer;
-            }
-        }
-
-        public class dSv_player_status_a_c
-        {
-            public u32 pointer;
-            public dSv_player_status_a_c(u32 pointer)
-            {
-                this.pointer = pointer;
-            }
-        }
-
-        public class dSv_player_status_a_c
-        {
-            public u32 pointer;
-            public dSv_player_status_a_c(u32 pointer)
-            {
-                this.pointer = pointer;
-            }
-        }
-
-        public class dSv_player_status_a_c
-        {
-            public u32 pointer;
-            public dSv_player_status_a_c(u32 pointer)
-            {
-                this.pointer = pointer;
-            }
-        }*/
 
 }

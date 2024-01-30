@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Buffer\Buffer.csproj" />
     <ProjectReference Include="..\..\..\ModLoader.API\ModLoader.API.csproj" />
     <ProjectReference Include="..\WW.API\WW.API.csproj" />
   </ItemGroup>

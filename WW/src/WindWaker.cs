@@ -1,7 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System;
 using WW.API;
-using WW.API.src;
 
 namespace WW;
 
@@ -23,7 +22,7 @@ public class WindWaker : IPlugin
 public class Core : IBootstrapFilter
 {
 
-    public static dComIfG_inf_c? game;
+    public static dComIfG_inf_c? gameInfo;
 
     public static bool isReady = false;
 
@@ -36,7 +35,7 @@ public class Core : IBootstrapFilter
 
     public static void InitWW()
     {
-        game = new dComIfG_inf_c(0x803C4C08);
+        gameInfo = new dComIfG_inf_c(0x803C4C08);
 
         isReady = true;
     }
@@ -57,7 +56,7 @@ public class Core : IBootstrapFilter
     {
         if (!isReady) { return; }
 
-        u16 curRupees = game.save.mSavedata.mPlayer.mPlayerStatusA.mRupee;
+        u16 curRupees = gameInfo.save.mSavedata.mPlayer.mPlayerStatusA.mRupee;
         if (curRupees != lastRupees)
         {
             Console.WriteLine("Obtained " + (curRupees - lastRupees) + " Rupees. Total: " + curRupees);
