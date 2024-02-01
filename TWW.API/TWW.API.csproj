@@ -8,6 +8,12 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="src\Wrappers\Test\**" />
+    <EmbeddedResource Remove="src\Wrappers\Test\**" />
+    <None Remove="src\Wrappers\Test\**" />
+  </ItemGroup>
+
     <ItemGroup>
 	 <Using Include="System.Byte" Alias="u8" />
 	 <Using Include="System.UInt16" Alias="u16" />
@@ -28,10 +34,6 @@
     <ItemGroup>
       <ProjectReference Include="..\..\..\Buffer\Buffer.csproj" />
       <ProjectReference Include="..\..\..\ModLoader.API\ModLoader.API.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="src\Wrappers\Test\" />
     </ItemGroup>
 
 </Project>

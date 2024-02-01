@@ -15,6 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="ImGui.NET">
+      <HintPath>..\..\..\..\Bindings\Dolphin\ImGui.NET\bin\Release\ImGui.NET\netstandard2.0\ImGui.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
 	  <Using Include="System.Byte" Alias="u8" />
 	  <Using Include="System.UInt16" Alias="u16" />
 	  <Using Include="System.UInt32" Alias="u32" />

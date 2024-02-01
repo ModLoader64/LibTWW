@@ -12,6 +12,11 @@
         public f32 y { get => _y(); set => _y(value); }
         public f32 z { get => _z(); set => _z(value); }
 
+        public static uint getSize()
+        {
+            return 0xC;
+        }
+
         private f32 _x()
         {
             return Memory.RAM.ReadF32(pointer + 0x0);
@@ -51,6 +56,13 @@
         public s16 x { get => _x(); set => _x(value); }
         public s16 y { get => _y(); set => _y(value); }
         public s16 z { get => _z(); set => _z(value); }
+
+
+        public static uint getSize()
+        {
+            return 0x6;
+        }
+
 
         private s16 _x()
         {

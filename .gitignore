@@ -1,3 +1,5 @@
 .vs/
 */bin
 */obj
+TWW.API/src/Wrappers/Test/*
+TWW.DynamicCodeGeneration/*
